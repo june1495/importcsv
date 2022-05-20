@@ -4,19 +4,19 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const csvSlice = createSlice({
   name: 'csv',
-  initialState: {},
+  initialState: { data: [] },
   reducers: {
     addData: (state, action) => {
-      state.push(action.payload);
+      state.data.push(action.payload);
     },
 
     cleanData: (state) => {
-      state.splice(0);
+      state.data.splice(0);
     },
 
     editData: (state, action) => {
       const { id, date, description, amount, code } = action.payload;
-      const existingData = state.find((data) => data.id === id);
+      const existingData = state.data.find((data) => data.id === id);
       if (existingData) {
         existingData.date = date;
         existingData.description = description;
@@ -26,7 +26,7 @@ const csvSlice = createSlice({
     },
     deleteData: (state, action) => {
       const { id } = action.payload;
-      const existingDat = state.find((data) => data.id === id);
+      const existingDat = state.data.find((data) => data.id === id);
       if (existingDat) {
         return state.filter((e) => e.id !== id);
       }
