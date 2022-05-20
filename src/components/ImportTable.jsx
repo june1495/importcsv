@@ -12,14 +12,11 @@ import { cleanImp, deleteImp } from '../redux/importSlice';
 
 const CreateTable = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.import);
-  //   const mapped = data?.map((e) => e);
-  //   const deleteAll = mapped?.find((a) => a).length === 0;
+  const data = useSelector((state) => state.import.data);
+
   const mapped = data.find((a) => a);
   const remove = (id) => {
     dispatch(deleteImp({ id }));
-    // eslint-disable-next-line no-unused-expressions
-    // deleteAll && dispatch(cleanImp());
   };
 
   const columns = [
