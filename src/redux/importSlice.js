@@ -30,11 +30,9 @@ const importSlice = createSlice({
     },
     deleteImp: (state, action) => {
       const { id } = action.payload;
-      const existingDat = state.data.find((data) => data);
-      const mapped = existingDat.find((b) => b.id === id);
-
-      if (mapped) {
-        return state.data.map((e) => e.filter((b) => b.id !== id));
+      const existingDat = state.data.find((data) => data.id === id);
+      if (existingDat) {
+        return state.data.filter((e) => e.id !== id);
       }
     },
   },
