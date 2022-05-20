@@ -9,7 +9,7 @@ const importSlice = createSlice({
   initialState: { data: [] },
   reducers: {
     addImp: (state, action) => {
-      state.push(action.payload);
+      state.data.push(action.payload);
     },
 
     cleanImp: (state) => {
