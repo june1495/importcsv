@@ -1,16 +1,23 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/jsx-curly-newline */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addOne } from '../redux/importSlice';
 
 const InputImport = () => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
-  //   const [toggle, setToggle] = useState(false);
+  const imported = useSelector((state) => state.import.data);
+  const flat = imported.flat();
+  const [toggle, setToggle] = useState(false);
   // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    if (flat.length > 0) {
+      setToggle(true);
+    }
+  }, [imported]);
   const handleChange = (e) => {
     setData({
       ...data,
@@ -92,7 +99,11 @@ const InputImport = () => {
         onInput={(e) => e.target.setCustomValidity('')}
         required
       />
-      <Button type="submit">Add</Button>
+      {toggle ? (
+        <Button type="submit">Add</Button>
+      ) : (
+        <div style={{ color: 'red' }}>Importar primero</div>
+      )}
     </Form>
   );
 };
