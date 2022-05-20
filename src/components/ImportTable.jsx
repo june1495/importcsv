@@ -73,6 +73,7 @@ const CreateTable = () => {
           <tr>
             <th>
               <BsArrowDown
+                style={{ cursor: 'pointer' }}
                 onClick={() => {
                   setToggle(!toggle);
                   setMain(false);
@@ -81,6 +82,7 @@ const CreateTable = () => {
               />
               Date
               <BsArrowUp
+                style={{ cursor: 'pointer' }}
                 onClick={() => {
                   setTogle(!togle);
                   setMain(false);
