@@ -79,7 +79,7 @@ const CreateTable = () => {
                   setTogle(false);
                 }}
               />
-              Fecha
+              Date
               <BsArrowUp
                 onClick={() => {
                   setTogle(!togle);
@@ -88,9 +88,9 @@ const CreateTable = () => {
                 }}
               />
             </th>
-            <th>Descripción</th>
-            <th>monto</th>
-            <th>c.u.t</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Code</th>
             <th>Actions</th>
           </tr>
         </thead>
