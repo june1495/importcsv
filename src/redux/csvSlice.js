@@ -28,7 +28,7 @@ const csvSlice = createSlice({
       const { id } = action.payload;
       const existingDat = state.data.find((data) => data.id === id);
       if (existingDat) {
-        return state.filter((e) => e.id !== id);
+        return state.data.filter((e) => e.id !== id);
       }
     },
   },

@@ -6,19 +6,19 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const importSlice = createSlice({
   name: 'import',
-  initialState: { data: {} },
+  initialState: { data: [] },
   reducers: {
     addImp: (state, action) => {
       state.push(action.payload);
     },
 
     cleanImp: (state) => {
-      state.splice(0);
+      state.data.splice(0);
     },
 
     editImp: (state, action) => {
       const { id, date, description, amount, code } = action.payload;
-      const existingData = state.find((data) => data);
+      const existingData = state.data.find((data) => data);
       const mapped = existingData.find((b) => b.id === id);
 
       if (mapped) {
@@ -30,11 +30,11 @@ const importSlice = createSlice({
     },
     deleteImp: (state, action) => {
       const { id } = action.payload;
-      const existingDat = state.find((data) => data);
+      const existingDat = state.data.find((data) => data);
       const mapped = existingDat.find((b) => b.id === id);
 
       if (mapped) {
-        return state.map((e) => e.filter((b) => b.id !== id));
+        return state.data.map((e) => e.filter((b) => b.id !== id));
       }
     },
   },
