@@ -10,17 +10,11 @@ import { deleteData, cleanData } from '../redux/csvSlice';
 
 const CreateTable = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.csv.data);
+  const data = useSelector((state) => state.csv);
   const remove = (id) => {
     dispatch(deleteData({ id }));
   };
-  // const sport = [
-  //   { name: 'franco', age: 32 },
-  //   { name: 'ale', age: 12 },
-  //   { name: 'adrian', age: 13 },
-  //   { name: 'franco', age: 14 },
-  //   { name: 'franco', age: 15 },
-  // ];
+
   const columns = [
     {
       id: 'date',
@@ -42,15 +36,6 @@ const CreateTable = () => {
 
   return (
     <>
-      {/* <CsvDownloader
-        filename="myfile"
-        extension=".csv"
-        separator=";"
-        wrapColumnChar=""
-        columns={columns}
-        datas={data}
-        text="DOWNLOAD"
-      /> */}
       <Buttons>
         <CsvDownloader
           filename="myfile"
@@ -92,20 +77,6 @@ const CreateTable = () => {
                 </td>
               </tr>
             ))}
-          {/* <tr>
-          <td>30/03/2020</td>
-          <td>Transferencia bancaria</td>
-          <td>$3000</td>
-          <td>20205541</td>
-          <td>
-            <button type="button">Edit</button>
-            <button type="button">Delete</button>
-          </td>
-        </tr> */}
-
-          {/* <tr>
-        <td colSpan={3}>No users</td>
-      </tr> */}
         </tbody>
       </table>
     </>

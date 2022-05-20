@@ -7,16 +7,16 @@ const csvSlice = createSlice({
   initialState: { data: [] },
   reducers: {
     addData: (state, action) => {
-      state.data.push(action.payload);
+      state.push(action.payload);
     },
 
     cleanData: (state) => {
-      state.data.splice(0);
+      state.splice(0);
     },
 
     editData: (state, action) => {
       const { id, date, description, amount, code } = action.payload;
-      const existingData = state.data.find((data) => data.id === id);
+      const existingData = state.find((data) => data.id === id);
       if (existingData) {
         existingData.date = date;
         existingData.description = description;
@@ -26,9 +26,9 @@ const csvSlice = createSlice({
     },
     deleteData: (state, action) => {
       const { id } = action.payload;
-      const existingDat = state.data.find((data) => data.id === id);
+      const existingDat = state.find((data) => data.id === id);
       if (existingDat) {
-        return state.data.filter((e) => e.id !== id);
+        return state.filter((e) => e.id !== id);
       }
     },
   },
