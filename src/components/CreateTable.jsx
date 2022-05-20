@@ -10,7 +10,7 @@ import { deleteData, cleanData } from '../redux/csvSlice';
 
 const CreateTable = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.csv);
+  const data = useSelector((state) => state.csv.data);
   const remove = (id) => {
     dispatch(deleteData({ id }));
   };

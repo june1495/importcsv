@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable operator-linebreak */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CsvDownloader from 'react-csv-downloader';
@@ -13,10 +14,12 @@ import { cleanImp, deleteImp } from '../redux/importSlice';
 const CreateTable = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.import.data);
-
   const remove = (id) => {
     dispatch(deleteImp({ id }));
   };
+  useEffect(() => {
+    data[0]?.length < 1 && dispatch(cleanImp());
+  }, [data]);
 
   const columns = [
     {
