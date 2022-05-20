@@ -14,7 +14,6 @@ const CreateTable = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.import.data);
 
-  const mapped = data.find((a) => a);
   const remove = (id) => {
     dispatch(deleteImp({ id }));
   };
@@ -47,7 +46,7 @@ const CreateTable = () => {
           separator=";"
           wrapColumnChar=""
           columns={columns}
-          datas={mapped}
+          datas={data}
         >
           <Clean>Download</Clean>
         </CsvDownloader>
