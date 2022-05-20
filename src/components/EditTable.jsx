@@ -10,7 +10,7 @@ import { editData } from '../redux/csvSlice';
 const EditTable = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const arr = useSelector((state) => state.csv.data);
+  const arr = useSelector((state) => state.csv);
   const existingArr = arr.filter((e) => e.id === params.id);
   const { id, date, description, amount, code } = existingArr[0];
   const [data, setData] = useState({
