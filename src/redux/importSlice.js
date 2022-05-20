@@ -32,18 +32,10 @@ const importSlice = createSlice({
       const { id } = action.payload;
       const existingDat = state.find((data) => data);
       const mapped = existingDat.find((b) => b.id === id);
-      //   const reduced = state.map((e) => e.filter((b) => b));
-      //   console.log(reduced);
-      console.log();
 
-      console.log(mapped);
       if (mapped) {
         return state.map((e) => e.filter((b) => b.id !== id));
       }
-      // eslint-disable-next-line no-constant-condition
-      //   if (reduced[0].length < 1) {
-      //     return state.splice(0);
-      //   }
     },
   },
 });
