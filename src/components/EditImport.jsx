@@ -11,7 +11,6 @@ const EditTable = () => {
   const params = useParams();
   const navigate = useNavigate();
   const arr = useSelector((state) => state.import);
-  console.log(arr);
   const existingArr = arr.map((e) => e.filter((b) => b.id === params.id));
   const { id, date, description, amount, code } = existingArr[0][0];
   const [data, setData] = useState({
