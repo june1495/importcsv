@@ -12,7 +12,7 @@ import { cleanImp, deleteImp } from '../redux/importSlice';
 
 const CreateTable = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.import.data);
+  const data = useSelector((state) => state.import);
 
   const remove = (id) => {
     dispatch(deleteImp({ id }));
