@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addData } from '../redux/csvSlice';
+import { addOne } from '../redux/importSlice';
 
-const InputTable = () => {
+const InputImport = () => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
+  //   const [toggle, setToggle] = useState(false);
   // eslint-disable-next-line consistent-return
   const handleChange = (e) => {
     setData({
@@ -20,7 +21,7 @@ const InputTable = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
-    dispatch(addData(data));
+    dispatch(addOne(data));
     setData({});
   };
   return (
@@ -96,14 +97,14 @@ const InputTable = () => {
   );
 };
 
-export default InputTable;
+export default InputImport;
 
 const Form = styled.form`
   width: 100%;
-  height: 150px;
-  margin-top: 10px;
+  height: 100px;
+  margin-top: 0px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
 `;
 
