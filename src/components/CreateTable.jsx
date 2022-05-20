@@ -75,7 +75,7 @@ const CreateTable = () => {
           </tr>
         </thead>
         <tbody>
-          {data.length > 0 &&
+          {data?.length > 0 &&
             data.map((e, index) => (
               <tr key={index}>
                 <td>{e.date}</td>
